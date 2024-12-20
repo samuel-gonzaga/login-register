@@ -21,9 +21,30 @@ header {
     padding: 1rem 0;
 }
 
-header h1 {
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+nav h1 {
     margin: 0;
     font-size: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+}
+
+nav a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 section {

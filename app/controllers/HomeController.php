@@ -1,17 +1,11 @@
 <?php
-require_once __DIR__ . '/../models/Post.php';
-class HomeController
+class HomeController extends Controller
 {
-    private $postModel;
-
-    public function __construct($db)
-    {
-        $this->postModel = new Post($db);
-    }
-
     public function index()
     {
-        $posts = $this->postModel->getAllPosts();
-        include __DIR__ . "/../views/home.php";
+        require_once __DIR__ . '/../models/Post.php';
+        $postsModel = new Post($this->db);
+        $posts = $postsModel->getAllPosts();
+        return $posts;
     }
 }
