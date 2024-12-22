@@ -1,3 +1,4 @@
+<?php $errors = $errors ?? []; ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -5,22 +6,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro de usuário</title>
+    <title>Login</title>
 </head>
 <body>
     <main>
         <section>
-            <h1>Registro de usuários</h1>
-            <h2>Para ter acesso ao conteúdo exclusivo, realize seu registro.</h2>
-
-            <form action="register" method="POST">
-                <input type="text" name="username" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="password" placeholder="Senha" required>
-                <button type="submit">Registrar</button>
+            <h2>Faça Login!</h2>
+            <form action="login" method="POST">
+                <input type="email" name="email" id="email" placeholder="E-mail" required>
+                <input type="password" name="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
             </form>
-
-            <p>Já tem registro? Faça <a href="login">Login</a></p>
+            <p>Ainda não possui login? <a href="register">Registre-se!</a></p>
 
             <?php if (isset($errors) && !empty($errors)): ?>
                 <ul>
@@ -29,8 +26,6 @@
                     <?php endforeach; ?>
                 </ul>
             <?php endif; ?>
-
-
         </section>
     </main>
 </body>

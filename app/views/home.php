@@ -1,3 +1,11 @@
+<?php
+
+if (!isLoggedIn()) {
+    redirect('login');
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -15,13 +23,15 @@
             <h1>Notícias</h1>
             <ul>
                 <li><a href="#">Sobre</a></li>
-                <li><a href="#">Sair</a></li>
+                <li><a href="logout">Sair</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Posts</h1>
+            <h1><?php echo getGreetingMessage(getSessionValue('username')) ?></h1>
+        </section>
+        <section>
             <?php if (isset($posts) && !empty($posts)): ?>
                 <ul>
                     <?php foreach ($posts as $post): ?>

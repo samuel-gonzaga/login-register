@@ -7,8 +7,7 @@ class RegisterController extends Controller
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = trim($dados['username'] ?? '');
             $email = trim($dados['email'] ?? '');
             $password = trim($dados['password'] ?? '');
@@ -16,10 +15,6 @@ class RegisterController extends Controller
 
             if (strlen($username) < 3) {
                 $errors[] = "O nome de usuário deve ter pelo menos 3 caracteres.";
-            }
-
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "O email informado não é válido.";
             }
 
             if (strlen($password) < 6) {
@@ -33,7 +28,7 @@ class RegisterController extends Controller
                     $result = $user->registerUser($username, $email, $hashedPassword);
 
                     if ($result === true) {
-                        header("Location: home");
+                        redirect('home');
                         exit;
                     } elseif (is_string($result)) {
                         $errors[] = $result; // Mensagem de erro retornada pela model
@@ -45,5 +40,6 @@ class RegisterController extends Controller
                 }
             }
         }
+        return $errors;
     }
 }

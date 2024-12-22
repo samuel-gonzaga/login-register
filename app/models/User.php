@@ -44,4 +44,12 @@ class User
         }
     }
 
+    public function retornaIdPassword($email)
+    {
+        $query = 'SELECT id, name, email, password FROM users WHERE email = :email';
+        $stmt = $this->db->prepare($query);
+
+        $stmt->execute([':email' => $email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

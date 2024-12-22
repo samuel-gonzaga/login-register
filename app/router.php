@@ -3,17 +3,24 @@ function route($url, $db)
 {
     switch ($url)
     {
+        case 'login':
+            $login = new LoginController($db);
+            $errors = $login->validarLogin($_POST);
+            require_once __DIR__ . '/../app/views/login.php';
+            break;
         case 'register':
-            require_once __DIR__ . '/../app/controllers/RegisterController.php';
             $register = new RegisterController($db);
-            $register->validarRegistro($_POST);
+            $errors = $register->validarRegistro($_POST);
             require_once __DIR__ . '/../app/views/register.php';
             break;
         case 'home':
-            require_once __DIR__ . '/../app/controllers/HomeController.php';
             $home = new HomeController($db);
             $posts = $home->index();
             require_once __DIR__ . '/../app/views/home.php';
+            break;
+        case 'logout':
+            $logout = new LogoutController($db);
+            $logout->logout();
             break;
         default:
             echo "Página não encontrada!";
