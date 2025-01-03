@@ -11,21 +11,12 @@ if (!isLoggedIn()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/login-register/app/views/css/base.css">
     <link rel="stylesheet" href="/login-register/app/views/css/home.css">
     <title>Notícias</title>
 </head>
 <body>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Notícias</h1>
-            <ul class="nav-links">
-                <li><a href="#">Sobre</a></li>
-                <li><a href="logout">Sair</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<?php include "templates/header.php"?>
 <main>
     <section class="welcome-section">
         <h1 class="greeting"><?php echo getGreetingMessage(getSessionValue('username')); ?></h1>

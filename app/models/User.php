@@ -25,7 +25,8 @@ class User
                 throw new Exception("Formato de e-mail inválido.");
             }
 
-            $data = date('Y-m-d');
+            date_default_timezone_set("America/Sao_Paulo");
+            $data = date('Y-m-d H:i:s');
             $query = "INSERT INTO users (name, email, password, created_at) VALUES (:name, :email, :password, :data)";
             $stmt = $this->db->prepare($query);
 
@@ -44,7 +45,7 @@ class User
         }
     }
 
-    public function retornaIdPassword($email)
+    public function retornaInfosUser($email)
     {
         $query = 'SELECT id, name, email, password FROM users WHERE email = :email';
         $stmt = $this->db->prepare($query);

@@ -1,3 +1,4 @@
-<footer><p>&copy; 2024 login-register. Todos os direitos reservados.</p></footer>
+<link rel="stylesheet" href="/login-register/app/views/css/footer.css">
+<footer><p>Desenvolvido por: <a href="https://github.com/samuel-gonzaga">Samuel Gonzaga</a></p></footer>
 </body>
 </html>

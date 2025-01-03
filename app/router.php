@@ -18,6 +18,9 @@ function route($url, $db)
             $posts = $home->index();
             require_once __DIR__ . '/../app/views/home.php';
             break;
+        case 'about':
+            require_once __DIR__ . '/../app/views/about.php';
+            break;
         case 'logout':
             $logout = new LogoutController($db);
             $logout->logout();
